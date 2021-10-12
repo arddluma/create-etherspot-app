@@ -11,6 +11,8 @@ jobs:
         run: |
           yarn install
           yarn run react-app:build
+        env:
+              CI: false
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
