@@ -7,7 +7,7 @@
     "workspaces",
     "yarn"
   ],
-  "private": true,
+  "private": false,
   "scripts": {
     "subgraph:auth": "yarn workspace @project/subgraph auth",
     "subgraph:codegen": "yarn workspace @project/subgraph codegen",
