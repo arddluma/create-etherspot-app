@@ -19,3 +19,7 @@ jobs:
         with:
           branch: gh-pages
           folder: packages/react-app/build
+      - name: Publish to npmjs 🚀
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
