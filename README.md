@@ -1,7 +1,7 @@
 
 ## create-etherspot-app
 
-This is an boilerplate for Etherspot-sdk, create Etherspot powered apps with one command.
+This is a boilerplate for Etherspot-sdk, create Etherspot powered apps with one command.
 
 ## Project Structure
 

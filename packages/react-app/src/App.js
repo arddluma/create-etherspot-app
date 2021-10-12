@@ -10,6 +10,8 @@ import useWeb3Modal from "./hooks/useWeb3Modal";
 import { addresses, abis } from "@project/contracts";
 import GET_TRANSFERS from "./graphql/subgraph";
 
+import { Sdk, NetworkNames, randomPrivateKey, EnvNames } from 'etherspot';
+
 async function readOnChainData() {
   // Should replace with the end-user wallet, e.g. Metamask
   const defaultProvider = getDefaultProvider();
@@ -24,7 +26,11 @@ async function readOnChainData() {
 function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
   const [account, setAccount] = useState("");
   const [rendered, setRendered] = useState("");
-
+  const privateKey = randomPrivateKey();
+  let sdk: Sdk
+  sdk = new Sdk({  privateKey,}, {  env: EnvNames.TestNets,  
+  networkName: 'kovan', 
+  });
   useEffect(() => {
     async function fetchAccount() {
       try {
@@ -59,6 +65,7 @@ function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
       onClick={() => {
         if (!provider) {
           loadWeb3Modal();
+          console.info('SDK created on Kovan testnet.');
         } else {
           logoutOfWeb3Modal();
         }
